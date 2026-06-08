@@ -3,4 +3,4 @@ BCR Toolkit
 
 v1.0.0
 --------------------------------------------------------------------------------
-[new] Added TransactionsDocument to parse CSV transaction files.
+[new] Added StatementDocument to parse CSV statement files from BCR.
