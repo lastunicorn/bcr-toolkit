@@ -38,28 +38,70 @@ dotnet add package DustInTheWind.Bcr.Toolkit
 
 ### Step 2 - Parse the Exported Document
 
-The `TransactionsDocument` class provides several methods to parse and load a CSV file, to accommodate different input sources. Here it is one of them:
+The `StatementDocument` class provides several methods to parse and load a CSV file, to accommodate different input sources. Here it is one of them:
 
 **From a file path:**
 
 ```csharp
-TransactionsDocument document = TransactionsDocument.LoadFile("transactions.csv");
+StatementDocument document = StatementDocument.LoadFile("statement.csv");
 
-foreach (BankTransaction transaction in document.Transactions)
+foreach (BankTransaction bankTransaction in document)
 {
     ...
 }
 ```
 
-## `BankTransaction` Properties
+## CSV Document Structure
 
-TBD
+The parser expects a header row followed by one or more transaction rows, then a footer row.
+
+### Header Row
+
+```csv
+Issuing date of the statement,Issuing time of the statement,Starting date,End date,Currency ,BNR exchange rate,Statement issued for account ,Product type,Account owner,First opening accounting balance,Transaction completion date,Transaction completion hour,Transaction's details,Operation's reference,Debit (amount),Credit (amount),Total debit (amount),Total credit (amount),Final accounting balance,Blocked amounts,Available balance,Credit lines available limit
+```
+
+### Transaction columns
+
+Each transaction row contains statement-level fields (same values on all rows of one export) and transaction-level fields.
+
+| CSV column | Populated property |
+| --- | --- |
+| `Issuing date of the statement` | `StatementDocument.IssuingDate` |
+| `Issuing time of the statement` | `StatementDocument.IssuingTime` |
+| `Starting date` | `StatementDocument.StartingDate` |
+| `End date` | `StatementDocument.EndDate` |
+| `Currency` | `StatementDocument.Currency` |
+| `BNR exchange rate` | `StatementDocument.BnrExchangeRate` |
+| `Statement issued for account` | `StatementDocument.BankAccount` |
+| `Product type` | `StatementDocument.ProductType` |
+| `Account owner` | `StatementDocument.AccountOwner` |
+| `First opening accounting balance` | `BankTransaction.OpeningBalance` |
+| `Transaction completion date` | `BankTransaction.CompletionDate` |
+| `Transaction completion hour` | `BankTransaction.CompletionHour` |
+| `Transaction's details` | `BankTransaction.Details` |
+| `Operation's reference` | `BankTransaction.OperationReference` |
+| `Debit (amount)` | `BankTransaction.DebitAmount` |
+| `Credit (amount)` | `BankTransaction.CreditAmount` |
+| `Total debit (amount)` | `BankTransaction.DebitTotal` |
+| `Total credit (amount)` | `BankTransaction.CreditTotal` |
+| `Final accounting balance` | `BankTransaction.FinalBalance` |
+| `Blocked amounts` | `BankTransaction.BlockedAmounts` |
+| `Available balance` | `BankTransaction.AvailableBalance` |
+| `Credit lines available limit` | `BankTransaction.CreditAvailableLimit` |
+
+### Footer row
+
+The last CSV row is a footer, not a transaction. It is recognized by an empty first column.
+
+- Column `Transaction completion date` (index 10) is parsed as footer completion date and must match `StatementDocument.IssuingDate`.
+- Column `Available balance` (index 20) is parsed as footer available balance and stored in `StatementDocument.EndBalance`.
 
 ## Demo Project
 
 The repository includes a sample CLI project in `sources/Bcr.Toolkit.Demo` that demonstrates:
 
-- reading `transactions.csv`
+- reading `statement.csv`
 - printing parsed data.
 
 You can use this project as a reference implementation for your own importer/exporter tools.

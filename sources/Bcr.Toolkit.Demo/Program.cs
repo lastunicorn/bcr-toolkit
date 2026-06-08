@@ -34,7 +34,7 @@ internal static class Program
 	{
 		DataGrid dataGrid = new()
 		{
-			Title = $"Statement Document",
+			Title = "Statement Document",
 			BorderTemplate = BorderTemplate.PlusMinusBorderTemplate
 		};
 
@@ -68,6 +68,7 @@ internal static class Program
 		dataGrid.Columns.Add("Completion\nDate");
 		dataGrid.Columns.Add("Completion\nHour");
 		dataGrid.Columns.Add("Details");
+		dataGrid.Columns.Add("Operation\nReference");
 		dataGrid.Columns.Add("Debit\nAmount", HorizontalAlignment.Right);
 		dataGrid.Columns.Add("Credit\nAmount", HorizontalAlignment.Right);
 		dataGrid.Columns.Add("Debit\nTotal", HorizontalAlignment.Right);
@@ -83,7 +84,8 @@ internal static class Program
 				bankTransaction.OpeningBalance.ToString(),
 				bankTransaction.CompletionDate.ToString("yyyy-MM-dd"),
 				bankTransaction.CompletionHour.ToString("HH:mm:ss"),
-				bankTransaction.Details.Truncate(30),
+				bankTransaction.Details.Truncate(20),
+				bankTransaction.OperationReference.Truncate(20),
 				bankTransaction.DebitAmount.ToString(),
 				bankTransaction.CreditAmount.ToString(),
 				bankTransaction.DebitTotal.ToString(),

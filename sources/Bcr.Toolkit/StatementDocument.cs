@@ -163,6 +163,7 @@ public class StatementDocument : Collection<BankTransaction>
 					CompletionDate = statementRecord.TransactionCompletionDate,
 					CompletionHour = statementRecord.TransactionCompletionHour,
 					Details = statementRecord.TransactionDetails,
+					OperationReference = statementRecord.OperationReference,
 					DebitAmount = statementRecord.DebitAmount,
 					CreditAmount = statementRecord.CreditAmount,
 					DebitTotal = statementRecord.TotalDebitAmount,
