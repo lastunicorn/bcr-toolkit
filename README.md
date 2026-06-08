@@ -55,7 +55,7 @@ foreach (BankTransaction bankTransaction in document)
 
 The parser expects a header row followed by one or more transaction rows, then a footer row.
 
-### Header Row
+### Header row
 
 ```csv
 Issuing date of the statement,Issuing time of the statement,Starting date,End date,Currency ,BNR exchange rate,Statement issued for account ,Product type,Account owner,First opening accounting balance,Transaction completion date,Transaction completion hour,Transaction's details,Operation's reference,Debit (amount),Credit (amount),Total debit (amount),Total credit (amount),Final accounting balance,Blocked amounts,Available balance,Credit lines available limit
