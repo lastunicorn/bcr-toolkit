@@ -1,7 +1,0 @@
-<Solution>
-  <Folder Name="/Common/">
-    <File Path="Directory.Build.props" />
-  </Folder>
-  <Project Path="Bcr.Toolkit.Demo/Bcr.Toolkit.Demo.csproj" />
-  <Project Path="Bcr.Toolkit/Bcr.Toolkit.csproj" />
-</Solution>

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="sources/Bcr.Toolkit.Demo/Bcr.Toolkit.Demo.csproj" />
+  <Project Path="sources/Bcr.Toolkit/Bcr.Toolkit.csproj" />
+</Solution>
