@@ -9,7 +9,7 @@ public class BankTransaction
 	public TimeOnly CompletionHour { get; set; }
 
 	public string Details { get; set; }
-	
+
 	public string OperationReference { get; set; }
 
 	public decimal DebitAmount { get; set; }
