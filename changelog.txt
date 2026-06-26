@@ -1,6 +1,11 @@
 BCR Toolkit
 ================================================================================
 
+v1.1.0
+--------------------------------------------------------------------------------
+[new   ] Generate and publish a synbol package (.snupkg).
+
+
 v1.0.0
 --------------------------------------------------------------------------------
-[new] Added StatementDocument to parse CSV statement files from BCR.
+[new   ] Added StatementDocument to parse CSV statement files from BCR.
