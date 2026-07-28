@@ -1,6 +1,12 @@
 BCR Toolkit
 ================================================================================
 
+v1.2.0
+--------------------------------------------------------------------------------
+[bugfix] Added default value 0 to all decimal columns so the parsing does not
+         fail when value is not provided.
+
+
 v1.1.0
 --------------------------------------------------------------------------------
 [new   ] Generate and publish a symbol package (.snupkg).

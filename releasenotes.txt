@@ -1,0 +1,1 @@
+[bugfix] Added default value 0 to all decimal columns so the parsing does not fail when value is not provided.
