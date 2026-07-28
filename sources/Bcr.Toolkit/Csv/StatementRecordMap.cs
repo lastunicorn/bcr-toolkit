@@ -38,7 +38,8 @@ internal sealed class StatementRecordMap : ClassMap<StatementRecord>
 			.Name("Account owner");
 
 		Map(x => x.FirstOpeningAccountingBalance)
-			.Name("First opening accounting balance");
+			.Name("First opening accounting balance")
+			.Default(0m);
 
 		Map(x => x.TransactionCompletionDate)
 			.Name("Transaction completion date")
@@ -55,27 +56,35 @@ internal sealed class StatementRecordMap : ClassMap<StatementRecord>
 			.Name("Operation's reference");
 
 		Map(x => x.DebitAmount)
-			.Name("Debit (amount)");
+			.Name("Debit (amount)")
+			.Default(0m);
 
 		Map(x => x.CreditAmount)
-			.Name("Credit (amount)");
+			.Name("Credit (amount)")
+			.Default(0m);
 
 		Map(x => x.TotalDebitAmount)
-			.Name("Total debit (amount)");
+			.Name("Total debit (amount)")
+			.Default(0m);
 
 		Map(x => x.TotalCreditAmount)
-			.Name("Total credit (amount)");
+			.Name("Total credit (amount)")
+			.Default(0m);
 
 		Map(x => x.FinalAccountingBalance)
-			.Name("Final accounting balance");
+			.Name("Final accounting balance")
+			.Default(0m);
 
 		Map(x => x.BlockedAmounts)
-			.Name("Blocked amounts");
+			.Name("Blocked amounts")
+			.Default(0m);
 
 		Map(x => x.AvailableBalance)
-			.Name("Available balance");
+			.Name("Available balance")
+			.Default(0m);
 
 		Map(x => x.CreditLinesAvailableLimit)
-			.Name("Credit lines available limit");
+			.Name("Credit lines available limit")
+			.Default(0m);
 	}
 }
